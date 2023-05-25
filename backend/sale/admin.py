@@ -25,7 +25,7 @@ admin.site.register(Client, ClientAdmin)
 
 #TESTES
 class SaleAdmin(admin.ModelAdmin):
-    list_display = ('note_number', 'date', 'client', 'sellers')
+    list_display = ('note_number', 'date', 'client', 'seller')
     search_fields = ('note_number', 'date',)
 
 admin.site.register(Sale, SaleAdmin)

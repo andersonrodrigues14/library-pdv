@@ -36,7 +36,7 @@ class Sale(models.Model):
         null = True,
         blank = True
     )
-    sellers = models.ForeignKey(
+    seller = models.ForeignKey(
         to=Seller,
         on_delete =models.CASCADE,
         related_name ='Sellers',
