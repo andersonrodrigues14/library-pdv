@@ -18,6 +18,8 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import Sales from '../Sales/Sales';
 import Commissions from '../Commissions/Commissions';
+import Button from '@mui/material/Button';
+import NewSale from '../NewSale/NewSale';
 
 const drawerWidth = 240;
 
@@ -112,7 +114,7 @@ export default function Sidenav() {
                 <ListItemIcon>
                   <img src='./icons/sales.png'  alt="sales menu"/>
                 </ListItemIcon>
-                <ListItemText primary="Sales" sx={{color:"#00585E"}}/>
+                <ListItemText primary="Vendas" sx={{color:"#00585E"}}/>
               </ListItemButton>
             </ListItem>
         </List>
@@ -122,15 +124,26 @@ export default function Sidenav() {
                 <ListItemIcon>
                   <img src='./icons/commissions.png' alt="commission menu"/>
                 </ListItemIcon>
-                <ListItemText primary="Commissions" sx={{color:"#00585E"}}/>
+                <ListItemText primary="Comissões" sx={{color:"#00585E"}}/>
               </ListItemButton>
             </ListItem>
         </List>
       </Drawer>
       <Box component="main" sx={{flexGrow:1, p:3}}>
          <DrawerHeader />
-        {menudata === "Sales" && <Sales />}
+        {menudata === "Sales" && 
+            <Box>
+                 <Box style={{display: 'flex',alignItems:"center", justifyContent:"space-between",margin:'10' }}>
+                    <Typography variant="h5" noWrap component="text" sx={{color:"#00585E"}} >
+                        Vendas Realizadas
+                    </Typography>
+                    <Button variant="contained" sx={{background:"#00585E"}} onClick={()=>setMenudata("NewSale")}>Inserir nova Venda</Button>
+                </Box>
+                <Sales />
+            </Box>
+        }
         {menudata === "Commisions" && <Commissions />}
+        {menudata === "NewSale" && <NewSale />}
       </Box>
     </Box>
   );
